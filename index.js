@@ -1,5 +1,4 @@
 
-
 //Variables in Javascript
 
 console.log('JS Fundamentals!!');
@@ -214,3 +213,117 @@ console.log(Boolean(undefined));
 
 console.log(Boolean(undefined));
 
+
+
+const arr=['sury','mudke','hi','gourav']
+
+
+for(let i in arr){
+    console.log(arr[i]);
+}
+
+
+console.log(arr.push('dev'));
+
+
+
+const aprilBatch = ['Tina', 'Madhur'];
+const mayBatch = ['Ritik', 'Deepak', 'Shalini'];
+const juneBatch = ['Saba', 'Shivani'];
+const julyBatch = [];
+
+// function addStudent(batch, student) {
+//   batch.push(student);
+//   console.log(batch);
+// }
+// addStudent(aprilBatch, 'Ritu');
+// addStudent(mayBatch, 'Sunny');
+
+//Rest ...
+
+function addStudents(batch, ...students) {
+  for (let i of students) {
+    batch.push(i);
+  }
+  console.log(batch);
+}
+
+addStudents(
+  aprilBatch,
+  'Sunny',
+  'Ritu',
+  'Sheena'
+);
+
+// Spread ...
+
+const newBatch = [...mayBatch];
+// const newBatch = ['Ritik', 'Deepak', 'Shalini']
+console.log(newBatch);
+
+mayBatch.push('newStudent');
+console.log(mayBatch);
+console.log(newBatch);
+
+
+
+const studentMarks = {
+    John: [85, 90, 92, 88, 87],
+    Jane: [92, 95, 89, 91, 94],
+    David: [78, 85, 90, 92, 84],
+    Emily: [90, 88, 92, 87, 91],
+    Michael: [86, 92, 90, 89, 94]
+    };
+    function findClassTopper(studentMarks){
+        //Implement your function here
+        
+        let name="";
+        let maxAvg=Number.MIN_VALUE;
+        
+        for(let [key,value] of Object.entries(studentMarks)){
+            let tempName=key;
+            let temparr=value;
+            let tempsum=0;
+            for(let i of temparr){
+                tempsum+=i;
+                  
+            }
+            if(tempsum>maxAvg){
+                maxAvg=tempsum;
+                name=tempName;
+            }
+            
+        }
+        return name;
+    }
+
+    console.log(findClassTopper(studentMarks));    
+
+
+
+    //CLOSURES
+
+
+    let ab = 'Global';
+
+function outerPrint() {
+  let b = 'OuterPrint';
+
+  return function innerPrint() {
+    let c = 'innerPrint';
+    return `${a} -> ${ab} -> ${c}`;
+  };
+}
+const show = outerPrint();
+console.log(show);
+const printInner = show();
+console.log(printInner);
+
+
+{
+function print(){
+    console.log(this);
+}
+
+print();
+}
